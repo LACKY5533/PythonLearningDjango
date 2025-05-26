@@ -1,0 +1,11 @@
+*env/
+*.env
+.vscode/
+.idea/
+__pecache__/
+*.py[cod]
+db.*
+*.db
+*.sqlite
+*.sqlite3
+*.tmp
