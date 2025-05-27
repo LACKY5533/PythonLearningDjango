@@ -1,90 +1,23 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <title>Список товаров</title>
-    <style>
-        body {
-            font-family: Arial; margin: 20px;
-            margin: 0;
-            padding: 20px;
-            background-color: #f5f5f5;
-            margin-right: 15px;
-        }
-        .container {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-            gap: 20px;
-        }
-        .product-card {
-            background: white;
-            border-radius: 8px;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-            padding: 20px;
-            transition: transform 0.3s ease;
-        }
-        .product-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-        }
-        .product-title {
-            font-size: 1.2em;
-            margin-bottom: 10px;
-            color: #333;
-        }
-        .product-brand {
-            color: #666;
-            font-size: 0.9em;
-            margin-bottom: 10px;
-        }
-        .product-description {
-            color: #666;
-            font-size: 0.9em;
-            margin-bottom: 10px;
-        }
-        .product-stock {
-            font-weight: bold;
-            margin-bottom: 15px;
-        }
-        .in-stock {
-            color: #28a745;
-        }
-        .out-of-stock {
-            color: #dc3545;
-        }
-        a {
-            text-decoration: none;
-            color: #0066cc; text-decoration: none;
-        }
-        a:hover { 
-            text-decoration: underline; 
-        }
-        nav {
-            background: #f0f0f0; padding: 10px; margin-bottom: 20px;
-        }
-        nav a {
-            margin-right: 15px; 
-        }
-        h1 {
-            color: #333;
-            margin-bottom: 30px;
-        }
-    </style>
-</head>
-<body>
-    <nav>
-        <a href="/">Главная</a>
-        <a href="/items/">Список товаров</a>
-        <a href="/about/">Информация об авторе</a>
-    </nav>
-    
-    <h1>Список товаров</h1>
-    <div class="container">
-        {% for item in items %}
-        <a href="{% url 'item_detail' item.id %}">
+{% extends "base.html" %}
+
+{% block title %}Список товаров{% endblock %}
+
+{% block content %}
+<h1>Список товаров</h1>
+<div class="container">
+    {% for item in items %}
+    <div class="product-card-wrapper">
+        <a href="{% url 'item_detail' item.id %}" class="product-link">
             <div class="product-card">
                 <div class="product-title">{{ item.name }}</div>
                 <div class="product-brand">{{ item.brand }}</div>
-                <div class="product-description">{{ item.description }}</div>
+                <div class="product-description">
+                    {% if item.description %}
+                        {{ item.description }}
+                    {% else %}
+                        Описание отсутствует
+                    {% endif %}
+                </div>
                 <div class="product-stock {% if item.count > 0 %}in-stock{% else %}out-of-stock{% endif %}">
                     {% if item.count > 0 %}
                         В наличии: {{ item.count }} шт.
@@ -94,7 +27,7 @@
                 </div>
             </div>
         </a>
-        {% endfor %}
     </div>
-</body>
-</html>
+    {% endfor %}
+</div>
+{% endblock %}

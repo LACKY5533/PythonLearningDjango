@@ -1,23 +1,8 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <title>Магазин</title>
-    <style>
-        body { font-family: Arial; margin: 20px; }
-        a { color: #0066cc; text-decoration: none; }
-        a:hover { text-decoration: underline; }
-        nav { background: #f0f0f0; padding: 10px; margin-bottom: 20px; }
-        nav a { margin-right: 15px; }
-    </style>
-</head>
-<body>
-    <nav>
-        <a href="/">Главная</a>
-        <a href="/items/">Список товаров</a>
-        <a href="/about/">Информация об авторе</a>
-    </nav>
-    
-    <h1>Добро пожаловать в наш магазин!</h1>
-    <p><a href="/items/">Перейти к списку товаров</a></p>
-</body>
-</html>
+{% extends "base.html" %}
+
+{% block title %}Список товаров{% endblock %}
+
+{% block content %}
+<h1>Добро пожаловать в наш магазин!</h1>
+<p><a href="/items/">Перейти к списку товаров</a></p>
+{% endblock %}

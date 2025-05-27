@@ -1,27 +1,12 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <title>Информация об авторе</title>
-    <style>
-        body { font-family: Arial; margin: 20px; }
-        a { color: #0066cc; text-decoration: none; }
-        a:hover { text-decoration: underline; }
-        nav { background: #f0f0f0; padding: 10px; margin-bottom: 20px; }
-        nav a { margin-right: 15px; }
-    </style>
-</head>
-<body>
-    <nav>
-        <a href="/">Главная</a>
-        <a href="/items/">Список товаров</a>
-        <a href="/about/">Информация об авторе</a>
-    </nav>
-    
-    <h1>Информация об авторе</h1>
-    </p></h1>Имя: Никита</h1></p>
-    </p></h1>Отчество: Андреевич</h1></p>
-    </p></h1>Фамаилия: Атрашков</h1></p>
-    </p></h1>Номер: 8-999-999-99-99</h1></p>
-    </p></h1>Email: my-mail.ru</h1></p>
-</body>
-</html>
+{% extends "base.html" %}
+
+{% block title %}Список товаров{% endblock %}
+
+{% block content %}
+<h1>Информация об авторе</h1>
+</p></h1>Имя: Никита</h1></p>
+</p></h1>Отчество: Андреевич</h1></p>
+</p></h1>Фамаилия: Атрашков</h1></p>
+</p></h1>Номер: 8-999-999-99-99</h1></p>
+</p></h1>Email: my-mail.ru</h1></p>
+{% endblock %}

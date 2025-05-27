@@ -1,4 +1,4 @@
-import pandas as pd
+#import pandas as pd
 
 from django.shortcuts import render, get_object_or_404
 from django.http import HttpResponse

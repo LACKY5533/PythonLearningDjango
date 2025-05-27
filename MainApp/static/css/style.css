@@ -1,0 +1,106 @@
+/* Шапка */
+.header {
+    background-color: #6b6b6b;
+    padding: 15px 0;
+}
+
+.nav {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.nav-link {
+    color: white;
+    text-decoration: none;
+    margin-right: 20px;
+    padding: 5px 10px;
+    border-radius: 4px;
+    transition: background-color 0.3s;
+}
+
+.nav-link:hover {
+    background-color: #555;
+}
+
+.nav-link.active {
+    background-color: #4CAF50;
+    font-weight: bold;
+}
+
+/* Тело */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    line-height: 1.6;
+    background-color: #f5f5f5;
+    color: #333; /* Основной цвет текста */
+}
+
+/* ... остальные общие стили ... */
+
+/* Карточки товаров */
+.container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 20px;
+    margin-top: 20px;
+}
+
+.product-link {
+    text-decoration: none; /* Убираем подчеркивание */
+    color: inherit; /* Наследуем цвет текста */
+    display: block; /* Чтобы ссылка занимала всю карточку */
+}
+
+.product-card {
+    background: white;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    padding: 20px;
+    transition: transform 0.3s ease;
+    height: 100%; /* Чтобы все карточки были одной высоты */
+}
+
+.product-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+
+.product-title {
+    font-size: 1.2em;
+    margin-bottom: 10px;
+    color: #333; /* Цвет заголовка */
+}
+
+.product-brand {
+    color: #666;
+    font-size: 0.9em;
+    margin-bottom: 10px;
+}
+
+.product-description {
+    color: #666;
+    font-size: 0.9em;
+    margin-bottom: 10px;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+.product-stock {
+    font-weight: bold;
+    margin-bottom: 15px;
+}
+
+.in-stock {
+    color: #28a745;
+}
+
+.out-of-stock {
+    color: #dc3545;
+}
+
+/* ... остальные стили ... */

@@ -1,0 +1,7 @@
+<header class="header">
+    <nav class="nav">
+        <a href="{% url 'home' %}" class="nav-link {% if request.path == '/' %}active{% endif %}">Главная</a>
+        <a href="{% url 'items_list' %}" class="nav-link {% if request.path == '/items/' %}active{% endif %}">Список товаров</a>
+        <a href="{% url 'about' %}" class="nav-link {% if request.path == '/about/' %}active{% endif %}">Об авторе</a>
+    </nav>
+</header>
