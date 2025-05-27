@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Список товаров</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 20px; }
+        a { color: #0066cc; text-decoration: none; }
+        a:hover { text-decoration: underline; }
+        ol { line-height: 1.6; }
+    </style>
+</head>
+<body>
+    <h1>Список товаров</h1>
+    <ol>
+        {% for item in items %}
+        <li>
+            <a href="/item/{{ item.id }}">{{ item.name }}</a> 
+        </li>
+        {% endfor %}
+    </ol>
+</body>
+</html>

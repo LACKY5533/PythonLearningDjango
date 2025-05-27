@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Товар {{ item.id }}</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 20px; }
+        a { color: #0066cc; text-decoration: none; }
+        a:hover { text-decoration: underline; }
+    </style>
+</head>
+<body>
+    <h1>Информация о товаре</h1>
+    <p><strong>ID:</strong> {{ item.id }}</p>
+    <p><strong>Название:</strong> {{ item.name }}</p>
+    <p><strong>Количество:</strong> {{ item.quantity }}</p>
+    <p><a href="/items">← Назад к списку товаров</a></p>
+</body>
+</html>
