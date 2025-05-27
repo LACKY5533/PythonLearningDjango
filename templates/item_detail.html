@@ -18,20 +18,28 @@
         <a href="/about/">Информация об авторе</a>
     </nav>
     
-    <h1>Информация о товаре</h1>
     {% if item %}
-        <p><strong>ID:</strong> {{ item.id }}</p>
-        <p><strong>Название:</strong> {{ item.name }}</p>
-        <p><strong>Количество:</strong> 
-            {% if item.quantity == 0 %}
+        <h1>Информация о товаре</h1>
+        <div class="product-info"><strong>ID:</strong> {{ item.id }}</div>
+        <div class="product-info"><strong>Название:</strong> {{ item.name }}</div>
+        <div class="product-info"><strong>Бренд:</strong> {{ item.brand }}</div>
+        <div class="product-info">
+            <strong>Количество:</strong>
+            {% if item.count == 0 %}
                 <span class="error">товар отсутствует</span>
             {% else %}
-                {{ item.quantity }}
+                {{ item.count }} шт.
             {% endif %}
-        </p>
+        </div>
     {% else %}
         <h1 class="error">Товар не найден</h1>
+        {% if error %}
+            <p class="error">{{ error }}</p>
+        {% else %}
+            <p class="error">Запрошенный товар не существует в базе данных</p>
+        {% endif %}
     {% endif %}
-    <p><a href="/items/">← Назад к списку товаров</a></p>
+    
+    <p><a href="{% url 'items_list' %}">← Назад к списку товаров</a></p>
 </body>
 </html>

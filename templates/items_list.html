@@ -22,7 +22,11 @@
     <ol>
         {% for item in items %}
         <li>
-            <a href="/item/{{ item.id }}/">{{ item.name }}</a>
+            <a href="{% url 'item_detail' item.id %}" 
+               {% if item.count == 0 %}class="out-of-stock"{% endif %}>
+                {{ item.name }} ({{ item.brand }})
+            </a>
+            {% if item.count == 0 %} - нет в наличии{% endif %}
         </li>
         {% endfor %}
     </ol>
