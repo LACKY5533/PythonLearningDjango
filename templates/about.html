@@ -1,14 +1,13 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Список товаров</title>
+    <title>Магазин</title>
     <style>
         body { font-family: Arial; margin: 20px; }
         a { color: #0066cc; text-decoration: none; }
         a:hover { text-decoration: underline; }
         nav { background: #f0f0f0; padding: 10px; margin-bottom: 20px; }
         nav a { margin-right: 15px; }
-        ol { line-height: 1.6; }
     </style>
 </head>
 <body>
@@ -18,13 +17,11 @@
         <a href="/about/">Информация об авторе</a>
     </nav>
     
-    <h1>Список товаров</h1>
-    <ol>
-        {% for item in items %}
-        <li>
-            <a href="/item/{{ item.id }}/">{{ item.name }}</a>
-        </li>
-        {% endfor %}
-    </ol>
+    <h1>Информация об авторе</h1>
+    </p></h1>Имя: Никита</h1></p>
+    </p></h1>Отчество: Андреевич</h1></p>
+    </p></h1>Фамаилия: Атрашков</h1></p>
+    </p></h1>Номер: 8-999-999-99-99</h1></p>
+    </p></h1>Email: my-mail.ru</h1></p>
 </body>
 </html>

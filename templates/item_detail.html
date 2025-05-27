@@ -3,16 +3,35 @@
 <head>
     <title>Товар {{ item.id }}</title>
     <style>
-        body { font-family: Arial, sans-serif; margin: 20px; }
+        body { font-family: Arial; margin: 20px; }
         a { color: #0066cc; text-decoration: none; }
         a:hover { text-decoration: underline; }
+        nav { background: #f0f0f0; padding: 10px; margin-bottom: 20px; }
+        nav a { margin-right: 15px; }
+        .error { color: red; }
     </style>
 </head>
 <body>
+    <nav>
+        <a href="/">Главная</a>
+        <a href="/items/">Список товаров</a>
+        <a href="/about/">Информация об авторе</a>
+    </nav>
+    
     <h1>Информация о товаре</h1>
-    <p><strong>ID:</strong> {{ item.id }}</p>
-    <p><strong>Название:</strong> {{ item.name }}</p>
-    <p><strong>Количество:</strong> {{ item.quantity }}</p>
-    <p><a href="/items">← Назад к списку товаров</a></p>
+    {% if item %}
+        <p><strong>ID:</strong> {{ item.id }}</p>
+        <p><strong>Название:</strong> {{ item.name }}</p>
+        <p><strong>Количество:</strong> 
+            {% if item.quantity == 0 %}
+                <span class="error">товар отсутствует</span>
+            {% else %}
+                {{ item.quantity }}
+            {% endif %}
+        </p>
+    {% else %}
+        <h1 class="error">Товар не найден</h1>
+    {% endif %}
+    <p><a href="/items/">← Назад к списку товаров</a></p>
 </body>
 </html>

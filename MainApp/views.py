@@ -13,33 +13,18 @@ items_df = pd.DataFrame([
 ])
 
 def home(request):
-    text = """
-    <h1> "Изучаем django"</h1>
-    <strong>Автор<strong>: <i>Иванов И.П.</i>
-    """
-    return HttpResponse(text)
+    return render(request, 'home.html')
 
 def about(request):
-    text = """
-    Имя: Иван
-    Отчество: Петрович
-    Фамилия: Иванов
-    Телефон: 8-923-600-01-02
-    Email: vasya@mail.ru
-    """
-    return HttpResponse(text, content_type="text/plain;charset=utf-8")
+    return render(request, 'about.html')
 
 
 def item_detail(request, item_id):
-    try:
-        item = items_df[items_df['id'] == item_id].iloc[0]
-        return render(request, 'item_detail.html', {
-            'item': item
-        })
-    except IndexError:
-        return render(request, 'error.html', {
-            'item_id': item_id
-        }, status=404)
+    items = items_df.to_dict('records')
+    item = next((item for item in items if item['id'] == item_id), None)
+    if not item:
+        return render(request, 'item_detail.html', status=404)
+    return render(request, 'item_detail.html', {'item': item})
 
 def items_list(request):
     # Конвертируем DataFrame в список словарей
